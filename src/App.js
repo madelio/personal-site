@@ -1,11 +1,14 @@
 import Box from '@mui/material/Box';
-import { LandingPage } from './Components/LandingPage';
+import NavDrawer from './Components/NavDrawer';
+import LandingPage from './Components/LandingPage';
 
 function App() {
   return (
-    <Box className="App" sx={{p: '5rem'}}>
-      <LandingPage/>
-    </Box>
+    <NavDrawer>
+      <Box className="App" sx={{p: '5rem'}}>
+        <LandingPage/>
+      </Box>
+    </NavDrawer>
   );
 }
 

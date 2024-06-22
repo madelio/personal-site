@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTheme } from '@mui/material/styles';
 
-export const LandingPage = () => {
+const LandingPage = () => {
     const theme = useTheme();
     return (
     <Stack alignItems='flex-start' spacing={1} justifyContent="center" height="100vh">
@@ -17,3 +17,4 @@ export const LandingPage = () => {
 );
 
 }
+export default LandingPage;
