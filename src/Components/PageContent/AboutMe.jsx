@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 
 const AboutMe = () => {
     return (
-        <Page title="About Me">
+        <Page title="About Me" theme="dark">
             <Stack spacing={2}>
                 <Typography>
                     With over six years of experience in the software development industry, I specialize in Full Stack development. My expertise spans various frameworks, including Ember and React, and extends to backend technologies like SQL Server and C#. Additionally, I have experience in mobile development using Xamarin.

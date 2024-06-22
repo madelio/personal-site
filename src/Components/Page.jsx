@@ -1,16 +1,19 @@
-import Box from "@mui/material/Box";
+import Container from '@mui/material/Container';
 import Typography from "@mui/material/Typography";
+import { getPalette } from '../theme';
 
 
 //TODO: Add isInverted to flip the color to dark mode
-const Page = ({ title, children, isInverted }) => (
-    <Box sx={{height: '100vh',  backgroundColor: isInverted && '#fefae0'}} >
+const Page = ({ title, children, theme}) => {
+    const { palette }= getPalette(theme);
+return (
+    <Container sx={{ height: '100vh', backgroundColor: palette.background.main }}>
         {title && 
-            <Typography color="secondary" variant="h1">
+            <Typography sx={{ color: palette.secondary.main }} variant="h1">
                 {title}
             </Typography>
         }
         {children}
-    </Box>
-)
+    </Container>
+)}
 export default Page;
