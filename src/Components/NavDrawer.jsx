@@ -10,6 +10,7 @@ const NavDrawer = ({ children }) => {
     return (
         <>
             <IconButton
+                size="large"
                 onClick={() => setOpen(true)}
             >
                 <MenuIcon/>
