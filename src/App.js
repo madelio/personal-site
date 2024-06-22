@@ -1,10 +1,11 @@
+import Box from '@mui/material/Box';
 import { LandingPage } from './Components/LandingPage';
 
 function App() {
   return (
-    <div className="App">
+    <Box className="App" sx={{p: '5rem'}}>
       <LandingPage/>
-    </div>
+    </Box>
   );
 }
 
