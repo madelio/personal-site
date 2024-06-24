@@ -2,9 +2,9 @@ import Page from '../Page';
 import Stack from '@mui/material/Stack';
 import { Typography } from '@mui/material';
 
-const AboutMe = () => {
+const AboutMe = ({ titleRef }) => {
     return (
-        <Page title="About Me" theme="dark">
+        <Page title="About Me" theme="dark" ref={titleRef}>
             <Stack spacing={2}>
                 <Typography>
                     With over six years of experience in the software development industry, I specialize in Full Stack development. My expertise spans various frameworks, including Ember and React, and extends to backend technologies like SQL Server and C#. Additionally, I have experience in mobile development using Xamarin.

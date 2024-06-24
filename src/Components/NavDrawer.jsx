@@ -1,28 +1,33 @@
-import { useState } from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { useState, useRef } from 'react';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import { scrollTo } from '../util';
 
-const NavDrawer = ({ children }) => {
-    const [open, setOpen] = useState(false);
+const NavDrawer = ({ children, listItems = []}) => {
+    const [ selectedTab, setSelectedTab ] = useState(0);
+    const navRef = useRef();
+
+    const handleTabChange = (event, value) => {
+        setSelectedTab(value);
+        scrollTo(listItems[value]?.ref, navRef.current.clientHeight);
+    }
 
     return (
-        <>
-            <IconButton
-                size="large"
-                onClick={() => setOpen(true)}
-            >
-                <MenuIcon/>
-            </IconButton>
-            <Drawer 
-                open={open}
-                onClose={() => setOpen(false)}
-            >
-                <Box>Hello</Box>
-            </Drawer>
-            {children}
-        </>
+        <Tabs  
+            value={selectedTab} 
+            onChange={handleTabChange} 
+            role="navigation"
+            centered
+            ref={navRef}
+            sx={{
+                position: 'sticky',
+                top: 0
+            }}
+        >
+            {listItems?.map(({ title }) => (
+                <Tab label={title}/>
+            ))}
+        </Tabs>
     )
 };
 

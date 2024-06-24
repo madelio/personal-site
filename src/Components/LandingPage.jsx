@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
 import Container from '@mui/material/Container';
@@ -8,16 +9,20 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from '@mui/material/styles';
 import Page from './Page';
 
-const LandingPage = () => {
+const LandingPage = ({ onButtonClick, titleRef }) => {
     const theme = useTheme();
     return (
-    <Page>
+    <Page ref={titleRef}>
         <Stack alignItems='flex-start' justifyContent="space-around" height="100%">
             <Box>
                 <Typography variant="h1">Hi, I'm <span style={{ color: theme.palette.primary.main }}>Madel Bautista</span></Typography>
                 <Typography variant="h5">and I am a Full Stack Software Engineer.</Typography>
             </Box>
-            <Button variant="outlined" endIcon={<EastIcon/>}>Work With Me</Button>
+            <Button 
+                variant="outlined" 
+                endIcon={<EastIcon/>}
+                onClick={() => onButtonClick()}
+            >Work With Me</Button>
         </Stack>
     </Page>
 );

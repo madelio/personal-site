@@ -10,15 +10,15 @@ const lightPalette = {
   palette: {
     primary: {
       main: mainBrand,
-      light: lightAccent,
-      dark: darkShades,
+    //   light: lightAccent,
+    //   dark: darkShades,
     },
     secondary: {
         main: darkAccent,
     },
-    background: {
-        main: lightShade
-    }
+    // background: {
+    //     main: lightShade
+    // }
   },
 }
 
@@ -33,5 +33,5 @@ const darkPalette = {
   },
 }
 
-export const getPalette = (theme) => theme === 'dark' ? darkPalette : lightPalette;
+// export const getPalette = (theme) => theme === 'dark' ? darkPalette : lightPalette;
 export const theme = createTheme(lightPalette);
