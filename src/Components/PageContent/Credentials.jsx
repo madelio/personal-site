@@ -9,14 +9,14 @@ const Credentials = ({ titleRef }) => {
     return (
     <Page title="Credentials" ref={titleRef}>
         <Stack>
-            <ListGroup
+            {/* <ListGroup
                 title="Education"
                 items={educationList}
             />
             <ListGroup
                 title="Skills"
                 items={frontEndFrameworks}
-            />
+            /> */}
         </Stack>
     </Page>
 )}

@@ -1,33 +1,34 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
+import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import { scrollTo } from '../util';
 
-const NavDrawer = ({ children, listItems = []}) => {
-    const [ selectedTab, setSelectedTab ] = useState(0);
-    const navRef = useRef();
+const NavDrawer = ({ navRef, listItems = [], onItemClick}) => {
+    const [ selectedTabIndex, setSelectedTab ] = useState(0);
 
     const handleTabChange = (event, value) => {
         setSelectedTab(value);
-        scrollTo(listItems[value]?.ref, navRef.current.clientHeight);
+        onItemClick(listItems[value]?.ref);
     }
 
     return (
-        <Tabs  
-            value={selectedTab} 
-            onChange={handleTabChange} 
-            role="navigation"
-            centered
-            ref={navRef}
-            sx={{
-                position: 'sticky',
-                top: 0
-            }}
+        <AppBar
+            color='inherit'
+            variant={selectedTabIndex === 0? 'elevation' : 'outlined'}
+            elevation={0}
         >
-            {listItems?.map(({ title }) => (
-                <Tab label={title}/>
-            ))}
-        </Tabs>
+            <Tabs  
+                value={selectedTabIndex} 
+                onChange={handleTabChange} 
+                role="navigation"
+                centered
+                ref={navRef}
+            >
+                {listItems?.map(({ title }) => (
+                    <Tab label={title}/>
+                ))}
+            </Tabs>
+        </AppBar>
     )
 };
 
